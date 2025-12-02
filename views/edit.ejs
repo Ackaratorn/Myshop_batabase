@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แก้ไขข้อมูล</title>
+    <link rel="stylesheet" href="/add.css">
+</head>
+<body>
+
+    <h1>แก้ไขข้อมูลสินค้า</h1>
+    <form action="/product/edit/<%= product._id %>" method="POST">
+
+        <label>
+            French fries (109฿)
+            <input type="number" name="french_fries" value="<%= product.french_fries %>">
+        </label>
+
+        <label>
+            Nugget (115฿)
+            <input type="number" name="nugget" value="<%= product.nugget %>">
+        </label>
+
+        <label>
+            ต้นทุน
+            <input type="number" name="cost" value="<%= product.cost %>">
+        </label>
+
+        <label>
+            ราคาขาย
+            <input type="number" name="profit" value="<%= product.profit %>">
+        </label>
+
+        <label>
+            เวลา
+            <input type="datetime-local" name="saleTime" value="<%= product.createdAt.toISOString().slice(0,16) %>">
+        </label>
+
+        <label>
+            อื่นๆ
+            <input type="text" name="description" value="<%= product.description %>">
+        </label>
+
+        <button type="submit">อัพเดท</button>
+    </form>
+
+    <a href="/product/add">กลับไปหน้ารายการ</a>
+
+</body>
+</html>
