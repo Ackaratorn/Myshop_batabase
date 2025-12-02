@@ -8,39 +8,20 @@
 </head>
 <body>
 
-    <nav>
-        <h1>Myshop</h1>
-    </nav>
+    <nav><h1>Myshop</h1></nav>
 
     <form class="form" action="/product/add" method="POST">
-
         <h2>เลือกสินค้า</h2>
-        <div class="checkbox-group checkbox_1">
-            <label>
-                French fries (109฿)
-                <input type="number" min="0" value="0" name="french_fries">
-            </label>
-        </div>
-
-        <div class="checkbox-group checkbox_2">
-            <label>
-                Nugget (115฿)
-                <input type="number" min="0" value="0" name="nugget">
-            </label>
-        </div>
+        <label>French fries (109฿)<input type="number" min="0" value="0" name="french_fries"></label>
+        <label>Nugget (115฿)<input type="number" min="0" value="0" name="nugget"></label>
 
         <h2>ข้อมูลราคา</h2>
-        <div class="field-group">
-            <input type="number" name="cost" placeholder="กรอกราคาต้นทุน" required>
-            <input type="number" name="profit" placeholder="กรอกเงินที่ขายได้" required>
-            <input type="datetime-local" name="saleTime" required>
-        </div>
+        <input type="number" name="cost" placeholder="กรอกราคาต้นทุน" required>
+        <input type="number" name="profit" placeholder="กรอกเงินที่ขายได้" required>
+        <input type="datetime-local" name="saleTime" required>
 
-        <div class="field-group">
-            <input type="text" name="description" placeholder="อื่นๆ">
-        </div>
-
-        <button class="submit-btn">ยืนยัน</button>
+        <input type="text" name="description" placeholder="อื่นๆ">
+        <button>ยืนยัน</button>
     </form>
 
     <h2>รายการที่บันทึกแล้ว</h2>
@@ -56,21 +37,20 @@
             <th>จัดการ</th>
         </tr>
         <% products.forEach(product => { %>
-            <tr>
-                <td>French fries / Nugget</td>
-                <td><%= product.french_fries %> / <%= product.nugget %></td>
-                <td><%= product.cost %></td>
-                <td><%= product.profit %></td>
-                <td><%= product.totalPrice %></td>
-                <td><%= product.createdAt.toLocaleString() %></td>
-                <td><%= product.description %></td>
-                <td>
-                    <a href="/product/edit/<%= product._id %>">แก้ไข</a> |
-                    <a href="/product/delete/<%= product._id %>" onclick="return confirm('คุณแน่ใจว่าจะลบ?')">ลบ</a>
-                </td>
-            </tr>
+        <tr>
+            <td>French fries / Nugget</td>
+            <td><%= product.french_fries %> / <%= product.nugget %></td>
+            <td><%= product.cost %></td>
+            <td><%= product.profit %></td>
+            <td><%= product.totalPrice %></td>
+            <td><%= product.createdAt.toLocaleString() %></td>
+            <td><%= product.description %></td>
+            <td>
+                <a href="/product/edit/<%= product._id %>">แก้ไข</a> |
+                <a href="/product/delete/<%= product._id %>" onclick="return confirm('คุณแน่ใจว่าจะลบ?')">ลบ</a>
+            </td>
+        </tr>
         <% }) %>
     </table>
-
 </body>
 </html>
